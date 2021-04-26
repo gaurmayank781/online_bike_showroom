@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block body %}
+{% load static %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Add Bike_Type Successfully');
+    window.location=('{% url 'view_bike_type' %}');
+</script>
+{% endifequal %}
+
+<center><h2 style = "font-family : 'Monotype Corsiva' ; color : #E6120E
+ ; font-weight : bold;margin-top:2%">Add Bike Type</h2></center><hr>
+<div class="container" style="margin-top:1%;border:1px solid grey;padding:10px;border-radius:8px;background-color:lightblue;width:65%">
+      <form method="post" action="">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Bike Type</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bike" placeholder="Enter bike type">
+  </div>
+
+  <button type="submit" class="btn btn-primary" style="margin-top:2%">Add Bike Type</button>
+      </form>
+</div>
+{% endblock %}

@@ -1,0 +1,175 @@
+{% extends 'index.html' %}
+{% block body %}
+{% load static %}
+
+<center><h2 style = "font-family : 'Monotype Corsiva' ; color : #E6120E
+ ; font-weight : bold;margin-top:2%">Edit Bike Detail</h2></center><hr>
+<div class="container" style="margin-top:1%;border:1px solid grey;padding:10px;border-radius:8px;background-color:lightblue;width:65%">
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+    <div class="form-group col-md-6">
+    <label for="exampleFormControlSelect1">Bike Company</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="company">
+      {% for i in company %}
+        {% ifequal bike.company.name i.name %}
+      <option value="{{i.name}}" selected>{{i.name}}</option>
+        {% else %}
+        <option value="{{i.name}}">{{i.name}}</option>
+        {% endifequal %}
+      {% endfor %}
+    </select>
+  </div>
+    <div class="form-group col-md-6">
+    <label for="exampleFormControlSelect1">Bike Company</label>
+    <select class="form-control" id="exampleFormControlSelect2" name="type">
+      {% for i in bike_type %}
+        {% ifequal bike.type.type i.type %}
+      <option value="{{i.type}}" selected>{{i.type}}</option>
+        {% else %}
+      <option value="{{i.type}}">{{i.type}}</option>
+        {% endifequal %}
+      {% endfor %}
+    </select>
+  </div>
+  </div>
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike name</label>
+      <input type="text" class="form-control" value="{{bike.bike_name}}" name="bname" id="inputEmail4">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Bike Price</label>
+      <input type="number" class="form-control" value="{{bike.price}}" name="bprice" id="inputPassword4">
+    </div>
+  </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+      <label for="inputPassword4">Bike Number</label>
+      <input type="text" class="form-control" value="{{bike.number}}" name="bnum" id="inputPassword4">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Length</label>
+      <input type="text" class="form-control" name="blen" value="{{bike.length}}" id="inputEmail4">
+    </div>
+  </div>
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Height</label>
+      <input type="text" class="form-control" name="bhei" value="{{bike.height}}" id="inputEmail4">
+    </div>
+
+        <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Width</label>
+      <input type="text" class="form-control" name="bwid" value="{{bike.width}}" id="inputEmail4">
+        </div></div>
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Fuel Type</label>
+      <input type="text" class="form-control" name="btype" value="{{bike.fuel_type}}" id="inputEmail4">
+    </div>
+
+        <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Displacement</label>
+      <input type="text" class="form-control" name="bdisplace" value="{{bike.displacement}}" id="inputEmail4">
+        </div></div>
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Max Power</label>
+      <input type="text" class="form-control" name="maxpower" value="{{bike.max_power}}" id="inputEmail4">
+    </div>
+
+        <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Max Torque</label>
+      <input type="text" class="form-control" name="maxtorq" value="{{bike.max_torque}}" id="inputEmail4">
+        </div></div>
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Milage</label>
+      <input type="text" class="form-control" name="milage" value="{{bike.milage}}" id="inputEmail4">
+    </div>
+
+        <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Number of Gear</label>
+      <input type="text" class="form-control" name="gear" value="{{bike.gear}}" id="inputEmail4">
+        </div></div>
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Front Type</label>
+      <input type="text" class="form-control" name="front" value="{{bike.front_type}}" id="inputEmail4">
+    </div>
+
+        <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Rear Type</label>
+      <input type="text" class="form-control" name="rear" value="{{bike.rear_type}}" id="inputEmail4">
+        </div></div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+      <label for="inputEmail4">Bike Address</label>
+      <input type="text" class="form-control" name="add" value="{{bike.address}}" id="inputEmail4">
+        </div>
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">Image 1</label>
+      <input type="file" class="form-control"  name="image1" id="inputPassword4">
+    </div>
+            <div class="form-group col-md-2">
+      <img src="{{bike.img1.url}}" style="width:100px;height:110px">
+    </div>
+
+        </div><div class="form-row">
+            <div class="form-group col-md-4">
+      <label for="inputPassword4">Image 2</label>
+      <input type="file" class="form-control"  name="image2" id="inputPassword4">
+    </div>
+     <div class="form-group col-md-2">
+      <img src="{{bike.img2.url}}" style="width:100px;height:110px">
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">Image 3</label>
+      <input type="file" class="form-control"  name="image3" id="inputPassword4">
+    </div>
+     <div class="form-group col-md-2">
+      <img src="{{bike.img3.url}}" style="width:100px;height:110px">
+    </div>
+
+  </div><div class="form-row">
+            <div class="form-group col-md-4">
+      <label for="inputPassword4">Image 4</label>
+      <input type="file" class="form-control"  name="image4" id="inputPassword4">
+    </div>
+     <div class="form-group col-md-2">
+      <img src="{{bike.img4.url}}" style="width:100px;height:110px">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">Image 5</label>
+      <input type="file" class="form-control"  name="image5" id="inputPassword4">
+    </div>
+     <div class="form-group col-md-2">
+      <img src="{{bike.img5.url}}" style="width:100px;height:110px">
+    </div>
+
+  </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-bottom:5%;padding:10px;width:100%">Edit Detail</button></a>
+
+</form>
+
+</div>
+
+{% if error %}
+<script>
+    alert('Bike Updated Successfully');
+    window.location = "{% url 'view_bike' %}";
+</script>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+	<title>Bike Showroom</title>
+	<!--/tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+
+	<script>
+
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!--//tags -->
+	<script src = https://code.jquery.com/jquery-3.3.1.js></script>
+<script src = https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js></script>
+<script src = https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js></script>
+<script src = https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js></script>
+<script src = https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js></script>
+<script src = https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js></script>
+<script src = https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js></script>
+
+<link rel = stylesheet href=https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css>
+<link rel = stylesheet href=https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css>
+	
+	<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
+</script>
+	
+	
+	
+	<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+	<!--pop-up-box-->
+	<link href="{% static 'css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!--//pop-up-box-->
+	<!-- price range -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui1.css' %}">
+	<!-- fonts -->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<style>
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 20%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#example {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#example th {
+  text-align: left;
+  padding: 12px;
+  background-color: orange;
+  color: white;
+}
+
+
+#example td {
+  text-align: left;
+  padding: 12px;
+  color:black;
+  background-color: white;
+}
+
+#example tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#example tr.header, #example tr:hover {
+  background-color: #f1f1f1;
+}
+
+.button {
+  background-color: orange; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 1px 1px;
+  cursor: pointer;
+}
+
+
+.button1 {border-radius: 15px;}
+
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  
+  
+  /* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:red;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+.nav-stylehead{
+color:white;
+font-weight:bold;
+}
+
+.nav-stylehead:hover{
+  color: green !important;
+  font-weight:bold;
+  background-color : black;
+  border-radius:10px;
+}
+.nav-link:hover{
+
+  font-weight:bold;
+  background-color : black;
+  color: green;
+  border-radius:8px;
+}
+
+a{
+font-eight:bold;
+color:white;
+}
+
+
+.navbar-brand:hover{
+  font-weight:bold;
+}
+
+#more {display: none;}
+
+.button1 {border-radius: 15px;}
+
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </style>
+
+</head>
+
+
+
+<body>
+
+	<!-- //top-header -->
+	<!-- header-bot-->
+	<div class="header-bot">
+		<div class="header-bot_inner_wthreeinfo_header_mid">
+			<!-- header-bot-->
+
+					<div class="col-md-4 logo_agile">
+				<h1>
+					<a href="index.html">
+						<span>B</span>ike
+						<span>S</span>howroom
+						<img src="{% static 'images/bike1.png' %}" style="width:26%" alt=" ">
+					</a>
+				</h1>
+			</div>
+
+			<!-- header-bot -->
+			<div class="col-md-8 header" style="text-align:right;margin-top:2%;font-weight:bold;font-size:20px">
+				{% if request.user.username %}
+
+				<i class="fa fa-user-circle-o" style="color:green"></i> <span style="color:red"> Welcome {{request.user.username}}</span>
+
+				<a href="{% url 'logout' %}" style="color:Red">
+					<button class="btn btn-primary"><i class="fa fa-sign-out"></i> Logout</button></a>
+
+				{% endif %}
+
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body modal-body-sub_agile">
+					<div class="main-mailposi">
+						<span class="fa fa-envelope-o" aria-hidden="true"></span>
+					</div>
+					<div class="modal_body_left modal_body_left1">
+						<h3 class="agileinfo_sign">Sign In </h3>
+						<p>
+							Sign In now, Let's start your Grocery Shopping. Don't have an account?
+							<a href="#" data-toggle="modal" data-target="#myModal2">
+								Sign Up Now</a>
+						</p>
+						<form action="#" method="post">
+							<div class="styled-input agile-styled-input-top">
+								<input type="text" placeholder="User Name" name="Name" required="">
+							</div>
+							<div class="styled-input">
+								<input type="password" placeholder="Password" name="password" required="">
+							</div>
+							<input type="submit" value="Sign In">
+						</form>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<!-- //Modal content-->
+		</div>
+	</div>
+
+	<div class="ban-top" style="background-color:red">
+		<div class="container">
+			<div class="agileits-navi_search">
+
+			</div>
+			<div class="top_nav_left">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+							    aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div style="background-color:red" class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1" style="background-color:orange;">
+							<ul class="nav navbar-nav menu__list">
+								{% if request.user.is_staff %}
+								<li class="active nav-link">
+									<a class="nav-stylehead" href="{% url 'admin_home' %}" style="color:white"><i class="fa fa-home"></i> Home
+										<span class="sr-only">(current)</span>
+									</a>
+								</li>
+								<li class="dropdown nav-link">
+									<a class="nav-stylehead dropdown-toggle" style="color:white" href="#" data-toggle="dropdown"><i class="fa fa-motorcycle"></i> Bike
+										<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu agile_short_dropdown">
+										<li>
+											<a href="{% url 'add_bike' %}"> Add Bike</a>
+										</li>
+										<li>
+											<a href="{% url 'view_bike' %}"> View Bike</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="dropdown nav-link">
+									<a class="nav-stylehead dropdown-toggle" style="color:white" href="#" data-toggle="dropdown">
+										<i class="fa fa-contao"></i> Company
+										<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu agile_short_dropdown">
+										<li>
+											<a href="{% url 'add_company' %}">Add Company</a>
+										</li>
+										<li>
+											<a href="{% url 'view_company' %}"> View Company</a>
+										</li>
+									</ul>
+								</li>
+								<li class="dropdown nav-link">
+									<a class="nav-stylehead dropdown-toggle" style="color:white" href="#" data-toggle="dropdown"><i class="fa fa-contao"></i> Bike Type
+										<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu agile_short_dropdown">
+										<li>
+											<a href="{% url 'add_bike_type' %}"> Add Bike Type</a>
+										</li>
+										<li>
+											<a href="{% url 'view_bike_type' %}"> View Bike Type</a>
+										</li>
+									</ul>
+								</li>
+								<li class="nav-link">
+									<a class="nav-stylehead" href="{% url 'view_feedback' %}" style="color:white"><i class="fa fa-comments"></i> Feedback</a>
+								</li>
+														<li class="dropdown nav-link">
+									<a class="nav-stylehead dropdown-toggle" style="color:white" href="#" data-toggle="dropdown"> Booking
+										<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu agile_short_dropdown">
+										<li>
+											<a href="{% url 'view_new_booking' %}">Requested Booking</a>
+										</li>
+										<li>
+											<a href="{% url 'view_booking' %}">All Booking</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="nav-link">
+									<a class="nav-stylehead" href="{% url 'view_customer' %}" style="color:white"><i class="fa fa-users"></i> All customer</a>
+								</li>
+
+								{% elif request.user.is_authenticated %}
+								<li class="active nav-link">
+									<a class="nav-stylehead" href="{% url 'home' %}" style="color:white"><i class="fa fa-home"></i> Home
+										<span class="sr-only">(current)</span>
+									</a>
+								</li>
+								<li class="nav-link">
+									<a class="nav-stylehead" href="{% url 'view_bike_customer' 0 %}" style="color:white"><i class="fa fa-motorcycle"></i> All Bike</a>
+								</li>
+
+								<li class="nav-link">
+									<a class="nav-stylehead" href="{% url 'view_company_customer' %}" style="color:white"><i class="fa fa-contao"></i> All Company</a>
+								</li>
+								<li class="nav-link">
+									<a class="nav-stylehead" href="{% url 'view_order' 'not' %}" style="color:white"><i class="fa fa-first-order"></i> My Order</a>
+								</li>
+
+								<li class="nav-link">
+									<a class="nav-stylehead" href="{% url 'send_feedback' request.user.id %}" style="color:white"><i class="fa fa-comments"></i> Send Feedback</a>
+								</li>
+
+								<li class="nav-link">
+									<a class="nav-stylehead" href="{% url 'profile' %}" style="color:white"><i class="fa fa-user"></i> My Profile</a>
+								</li>
+
+								{% else %}
+								<li class="active nav-link">
+									<a class="nav-stylehead" href="{% url 'home' %}" style="color:white"><i class="fa fa-home"></i> Home
+										<span class="sr-only">(current)</span>
+									</a>
+								</li>
+								<li class="nav-link">
+									<a class="nav-stylehead" href="{% url 'about' %}" style="color:white"><i class="fa fa-briefcase"></i> About Us</a>
+								</li>
+
+								<li class="nav-link">
+									<a class="nav-stylehead" href="{% url 'contact' %}" style="color:white"><i class="fa fa-volume-control-phone"></i> Contact</a>
+								</li>
+														<li class="dropdown nav-link">
+									<a class="nav-stylehead dropdown-toggle" style="color:white" href="#" data-toggle="dropdown">
+										<i class="fa fa-sign-in"></i> Login
+										<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu agile_short_dropdown">
+										<li>
+											<a href="{% url 'login_user' %}">User Login</a>
+										</li>
+										<li>
+											<a href="{% url 'login_admin' %}">Admin Login</a>
+										</li>
+									</ul>
+								</li>
+{% endif %}
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- //navigation -->
+	<!-- banner -->
+	{% block body %}
+	{% endblock %}
+
+
+	<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+
+	<script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+	<script>
+		$(document).ready(function () {
+			$('.popup-with-zoom-anim').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
+
+		});
+	</script>
+	<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}
+</script>
+
+
+	<script src="{% static 'js/minicart.js' %}"></script>
+	<script>
+		paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js' %}
+
+		paypalm.minicartk.cart.on('checkout', function (evt) {
+			var items = this.items(),
+				len = items.length,
+				total = 0,
+				i;
+
+			// Count the number of each item in the cart
+			for (i = 0; i < len; i++) {
+				total += items[i].get('quantity');
+			}
+
+			if (total < 3) {
+				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+				evt.preventDefault();
+			}
+		});
+	</script>
+
+	<script src="{% static 'js/jquery-ui.js' %}"></script>
+	<script>
+		//<![CDATA[ 
+		$(window).load(function () {
+			$("#slider-range").slider({
+				range: true,
+				min: 0,
+				max: 9000,
+				values: [50, 6000],
+				slide: function (event, ui) {
+					$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+				}
+			});
+			$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+		}); //]]>
+	</script>
+
+	<script src="{% static 'js/jquery.flexisel.js' %}"></script>
+	<script>
+		$(window).load(function () {
+			$("#flexiselDemo1").flexisel({
+				visibleItems: 3,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: {
+					portrait: {
+						changePoint: 480,
+						visibleItems: 1
+					},
+					landscape: {
+						changePoint: 640,
+						visibleItems: 2
+					},
+					tablet: {
+						changePoint: 768,
+						visibleItems: 2
+					}
+				}
+			});
+
+		});
+	</script>
+
+	<script>
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		}
+
+		function validatePassword() {
+			var pass2 = document.getElementById("password2").value;
+			var pass1 = document.getElementById("password1").value;
+			if (pass1 != pass2)
+				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+			else
+				document.getElementById("password2").setCustomValidity('');
+			//empty string means no validation error
+		}
+	</script>
+
+	<script src="{% static 'js/SmoothScroll.min.js' %}"></script>
+
+	<script src="{% static 'js/move-top.js' %}"></script>
+	<script src="{% static 'js/easing.js' %}"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+
+
+</body>
+
+</html>

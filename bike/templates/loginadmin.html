@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% block body %}
+{% load static %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('logged in successfully');
+    window.location=('{% url 'admin_home' %}');
+</script>
+{% endifequal %}
+{% ifequal error "not" %}
+<script>
+    alert('Username & Password are not Matching');
+</script>
+{% endifequal %}
+
+<center><h2 style = "font-family : 'Monotype Corsiva' ; color : #E6120E
+ ; font-weight : bold;margin-top:2%">Admin Login Form</h2></center><hr>
+<div class="container" style="border:1px solid grey;border-radius:8px;width:50%;padding:20px;margin-top:1%;background-color:lightgrey">
+
+      <form method="post" action="">
+    {% csrf_token %}
+          <center><img src="{% static 'images/login1.png' %}" style="border-radius:50%;border:1px solid black;width:20%">
+          </center>
+          <div style="margin-top:1%;border:1px solid grey;padding:10px;border-radius:8px">
+          <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="uname" placeholder="Enter Username" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd" required>
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-top:2%">SUBMIT</button>
+          </div></form>
+</div>
+{% endblock %}
